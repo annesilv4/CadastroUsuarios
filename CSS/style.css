@@ -134,13 +134,23 @@ body {
   border-radius: 5px;
 }
 
+#rua {
+  width: 55%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
 #numero {
   width: 10%;
   height: 30px;
   padding-left: 10px;
   font-size: 15px;
   margin-bottom: 2%;
-  margin-right: 2%;
+  margin-right: 12%;
   border-radius: 5px;
 }
 
@@ -160,7 +170,7 @@ body {
   padding-left: 10px;
   font-size: 15px;
   margin-bottom: 2%;
-  margin-right: 2%;
+  margin-right: 18%;
   border-radius: 5px;
 }
 
