@@ -1,5 +1,229 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: rgba(0, 0, 0, 0.6); /* escurece o fundo */
+  height: 100vh;
+}
+
+#container-cadastro {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cadastro-pessoal {
+  background: #fff; /* fundo branco para destacar */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* sombra */
+  width: 55%;
+  height: 60%;
+  padding: 2.5%;
+}
+
+#cadastro-pessoal h1 {
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+#cadastro-pessoal h3 {
+  margin-top: 2%;
+  text-align: center;
+  margin-bottom: 2%;
+  font-size: 1.2rem;
+}
+
+#cadastro-pessoal label {
+  font-size: 1rem;
+  margin-bottom: 0.5%;
+  font-weight: bold;
+}
+
+#name {
+  width: 55%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-right: 2%;
+  margin-bottom: 1%;
+  border-radius: 5px;
+}
+
+#cpf {
+  width: 23%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  border-radius: 5px;
+}
+
+#registro-geral {
+  width: 20%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 0.5%;
+  border-radius: 5px;
+}
+
+#registro-geral-dv {
+  width: 5%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
+#data-nascimento {
+  width: 12%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
+#telefone {
+  width: 15%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 15%;
+  border-radius: 5px;
+}
+
+#e-mail {
+  width: 40%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
+#cep {
+  width: 15%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 5%;
+  border-radius: 5px;
+}
+
+#logradouro {
+  width: 55%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 10%;
+  border-radius: 5px;
+}
+
+#numero {
+  width: 10%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
+#complemento {
+  width: 35%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
+#bairro {
+  width: 25%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
+#cidade {
+  width: 25%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
+#estado {
+  width: 5%;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #5ac390;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #448968;
+}
+
+/* Loader simulando */
+form button:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
