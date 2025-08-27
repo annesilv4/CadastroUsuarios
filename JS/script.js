@@ -3,11 +3,42 @@ document.getElementById("cadastro-pessoal").addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
+// Função para salvar os dados do formulário
+const form = document.getElementById("cadastro-pessoal");
+
+function salvarDados() {
+  const dados = {}; // ← usa objeto, não array
+  const inputs = form.querySelectorAll("input");
+
+  inputs.forEach((input) => {
+    dados[input.name] = input.value;
+  });
+
+  localStorage.setItem("cadastroPessoal", JSON.stringify(dados));
+}
+
+// Carregar os dados salvos ao abrir a página
+window.addEventListener("DOMContentLoaded", () => {
+  const dadosSalvos = JSON.parse(localStorage.getItem("cadastroPessoal")); // ← corrigido getItem
+
+  if (dadosSalvos) {
+    Object.keys(dadosSalvos).forEach((campo) => {
+      const input = form.querySelector(`[name="${campo}"]`);
+      if (input) input.value = dadosSalvos[campo];
+    });
+  }
+});
+
+// Salvar sempre que digitar algo
+form.addEventListener("input", salvarDados);
+
 // Capturando os dados do usuário
 // Nome
 document.getElementById("name").addEventListener("blur", (e) => {
   const nameElement = e.target;
   const nameValue = nameElement.value;
+
+  salvarDados();
 });
 
 // CPF
@@ -32,6 +63,7 @@ document.getElementById("cpf").addEventListener("input", (e) => {
 
   // atualiza o campo
   cpfElement.value = cpfValue;
+  salvarDados()
 });
 
 // RG
@@ -43,16 +75,19 @@ rgNumber.addEventListener("input", (e) => {
   if (e.target.value.length === e.target.maxLength) {
     rgDV.focus();
   }
+  salvarDados();
 });
 
 rgDV.addEventListener("input", (e) => {
   e.target.value = e.target.value.replace(/[^0-9Xx]/g, "").toUpperCase();
+  salvarDados();
 });
 
 // Data de Nascimento
 document.getElementById("data-nascimento").addEventListener("blur", (e) => {
   const dateElement = e.target;
   const dateValue = dateElement.value;
+  salvarDados();
 });
 
 // Telefone
@@ -75,12 +110,14 @@ document.getElementById("telefone").addEventListener("input", (e) => {
 
   // atualiza o campo
   phoneElement.value = phoneValue;
+  salvarDados();
 });
 
 // E-mail
 document.getElementById("e-mail").addEventListener("blur", (e) => {
   const emailElement = e.target;
   const emailValue = emailElement.value;
+  salvarDados();
 });
 
 // CEP
@@ -97,6 +134,7 @@ document.getElementById("cep").addEventListener("input", (e) => {
   }
 
   cepElement.value = cepValue;
+  salvarDados();
 });
 
 // Retirando o hifen e buscando o CEP na API
