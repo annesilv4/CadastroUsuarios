@@ -1,12 +1,10 @@
-import { element } from "./utils.js";
-
 // Evitando o envio do formulário
-element("cadastro-pessoal").addEventListener("submit", (e) => {
+document.getElementById("cadastro-pessoal").addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
 // Função para salvar os dados do formulário
-const form = element("cadastro-pessoal");
+const form = document.getElementById("cadastro-pessoal");
 
 function salvarDados() {
   const dados = {}; // ← usa objeto, não array
@@ -36,7 +34,7 @@ form.addEventListener("input", salvarDados);
 
 // Capturando os dados do usuário
 // Nome
-element("name").addEventListener("blur", (e) => {
+document.getElementById("name").addEventListener("blur", (e) => {
   const nameElement = e.target;
   const nameValue = nameElement.value;
 
@@ -44,7 +42,7 @@ element("name").addEventListener("blur", (e) => {
 });
 
 // CPF
-element("cpf").addEventListener("input", (e) => {
+document.getElementById("cpf").addEventListener("input", (e) => {
   const cpfElement = e.target;
   let cpfValue = cpfElement.value;
 
@@ -69,8 +67,8 @@ element("cpf").addEventListener("input", (e) => {
 });
 
 // RG
-const rgNumber = element("registro-geral");
-const rgDV = element("registro-geral-dv");
+const rgNumber = document.getElementById("registro-geral");
+const rgDV = document.getElementById("registro-geral-dv");
 
 rgNumber.addEventListener("input", (e) => {
   e.target.value = e.target.value.replace(/\D/g, "");
@@ -86,14 +84,14 @@ rgDV.addEventListener("input", (e) => {
 });
 
 // Data de Nascimento
-element("data-nascimento").addEventListener("blur", (e) => {
+document.getElementById("data-nascimento").addEventListener("blur", (e) => {
   const dateElement = e.target;
   const dateValue = dateElement.value;
   salvarDados();
 });
 
 // Telefone
-element("telefone").addEventListener("input", (e) => {
+document.getElementById("telefone").addEventListener("input", (e) => {
   const phoneElement = e.target;
   let phoneValue = phoneElement.value;
 
@@ -116,7 +114,7 @@ element("telefone").addEventListener("input", (e) => {
 });
 
 // E-mail
-element("e-mail").addEventListener("blur", (e) => {
+document.getElementById("e-mail").addEventListener("blur", (e) => {
   const emailElement = e.target;
   const emailValue = emailElement.value;
   salvarDados();
@@ -124,7 +122,7 @@ element("e-mail").addEventListener("blur", (e) => {
 
 // CEP
 // Formatação do CEP
-element("cep").addEventListener("input", (e) => {
+document.getElementById("cep").addEventListener("input", (e) => {
   const cepElement = e.target;
   let cepValue = cepElement.value;
 
@@ -140,7 +138,7 @@ element("cep").addEventListener("input", (e) => {
 });
 
 // Retirando o hifen e buscando o CEP na API
-element("cep").addEventListener("input", (e) => {
+document.getElementById("cep").addEventListener("input", (e) => {
   const cepElement = e.target;
   let cepValue = cepElement.value;
 
@@ -158,10 +156,10 @@ element("cep").addEventListener("input", (e) => {
     .then((data) => {
       if (!data.erro) {
         // Preenchendo os campos de endereço
-        element("logradouro").value = data.logradouro;
-        element("bairro").value = data.bairro;
-        element("cidade").value = data.localidade;
-        element("estado").value = data.uf;
+        document.getElementById("logradouro").value = data.logradouro;
+        document.getElementById("bairro").value = data.bairro;
+        document.getElementById("cidade").value = data.localidade;
+        document.getElementById("estado").value = data.uf;
       } else {
         alert("CEP não encontrado.");
       }
